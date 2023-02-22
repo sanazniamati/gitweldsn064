@@ -4,6 +4,7 @@ export default function App() {
   const [r, setR] = useState(65);
 
   const drawShape = (ctx) => {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     // leftShape
     ctx.beginPath();
     ctx.lineWidth = 3;

@@ -5,9 +5,17 @@ export default function App() {
 
   const drawShape = (ctx) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    // draw arrow
+    ctx.beginPath();
+    ctx.moveTo(236, 70);
+    ctx.lineTo(453, 70);
+    ctx.closePath();
+    ctx.strokeStyle = "orange";
+    ctx.stroke();
     // leftShape
     ctx.beginPath();
     ctx.lineWidth = 3;
+    ctx.strokeStyle = "red";
     ctx.moveTo(236, 115);
     ctx.lineTo(334, 115);
     ctx.lineTo(338, 137);
@@ -24,6 +32,7 @@ export default function App() {
     ctx.stroke();
     //   rightShape
     ctx.beginPath();
+    ctx.strokeStyle = "blue";
     ctx.moveTo(460, 344);
     ctx.arc(460, 320 - r, r, (90 * Math.PI) / 180, 0, true);
     ctx.lineTo(531, 225);

@@ -1,65 +1,30 @@
 import DHUButtTJoin from "./DHUButtTJoin";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import React from "react";
+// import Rough from "roughjs/bundled/rough.esm.js";
+// import Rough from "roughjs/bin/rough";
+
 export default function App() {
   const [r, setR] = useState(65);
+  const [t2, setT2] = useState(450);
 
-  const drawShape = (ctx) => {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    // draw arrow
-    ctx.beginPath();
-    ctx.moveTo(236, 70);
-    ctx.lineTo(453, 70);
-    ctx.closePath();
-    ctx.strokeStyle = "orange";
-    ctx.stroke();
-    // leftShape
-    ctx.beginPath();
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = "red";
-    ctx.moveTo(236, 115);
-    ctx.lineTo(334, 115);
-    ctx.lineTo(338, 137);
-    ctx.lineTo(349, 94);
-    ctx.lineTo(351, 115);
-    ctx.lineTo(453, 115);
-    ctx.lineTo(453, 546);
-    ctx.lineTo(351, 546);
-    ctx.lineTo(349, 525);
-    ctx.lineTo(338, 565);
-    ctx.lineTo(334, 548);
-    ctx.lineTo(237, 548);
-    ctx.closePath();
-    ctx.stroke();
-    //   rightShape
-    ctx.beginPath();
-    ctx.strokeStyle = "blue";
-    ctx.moveTo(460, 344);
-    ctx.arc(460, 320 - r, r, (90 * Math.PI) / 180, 0, true);
-    ctx.lineTo(531, 225);
-    ctx.lineTo(776, 225);
-    ctx.lineTo(776, 321);
-    ctx.lineTo(755, 326);
-    ctx.lineTo(797, 338);
-    ctx.lineTo(776, 342);
-    ctx.lineTo(776, 440);
-    ctx.lineTo(526, 438);
-    //curve bottom
-    ctx.arc(525 - r, 343 + r, r, 0, (270 * Math.PI) / 180, true);
-    ctx.closePath();
-    ctx.stroke();
-  };
   const handelIncR = () => {
     setR(r + 5);
   };
   const handelDecR = () => {
     setR(r - 5);
   };
+  const handelInc = () => {
+    setT2(t2 + 50);
+    console.log("t2: ", t2);
+  };
 
   return (
     <>
+      <button onClick={handelInc}>+</button>
       <button onClick={handelIncR}>R +</button>
       <button onClick={handelDecR}>R -</button>
-      <DHUButtTJoin drawShape={drawShape} />
+      <DHUButtTJoin r={r} t2={t2} />
     </>
   );
 }

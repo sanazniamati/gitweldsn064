@@ -209,8 +209,8 @@ export default function DHUButtTJoin() {
   };
   return (
     <>
-      <button onClick={handelInc}>+</button>
-      <button onClick={handelDec}>-</button>
+      <button onClick={handelInc}>t2+</button>
+      <button onClick={handelDec}>t2-</button>
       <button onClick={handelIncR}>R +</button>
       <button onClick={handelDecR}>R -</button>
       <canvas
